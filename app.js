@@ -27,7 +27,7 @@
       const countTxt = nTrack ? `${nTrack} bài` : (g.placeholder ? 'sắp có' : '');
       const head = document.createElement('div');
       head.className = 'glabel';
-      head.innerHTML = `<span class="chev">▾</span><span class="ico">${g.icon || '•'}</span>` +
+      head.innerHTML = `<span class="chev"></span>` +
         `<span class="gname">${g.label}</span>` + (countTxt ? `<span class="count">${countTxt}</span>` : '');
       head.addEventListener('click', () => {
         grp.classList.toggle('collapsed');
@@ -42,7 +42,7 @@
         const a = document.createElement('a');
         a.className = 'navlink' + (p.soon ? ' soon' : '');
         a.dataset.id = p.id;
-        a.innerHTML = `<span class="dot">✓</span><span class="t">${p.title}</span>` +
+        a.innerHTML = `<span class="dot"></span><span class="t">${p.title}</span>` +
           (p.soon ? `<span class="lk">soạn</span>` : '');
         a.addEventListener('click', e => { e.preventDefault(); go(p.id); closeDrawer(); });
         pagesWrap.appendChild(a);
@@ -109,7 +109,7 @@
     contentEl.querySelectorAll('pre').forEach(pre => {
       const code = pre.querySelector('code'); if (!code) return;
       const btn = document.createElement('button');
-      btn.className = 'copybtn'; btn.type = 'button'; btn.textContent = '⧉ Copy';
+      btn.className = 'copybtn'; btn.type = 'button'; btn.textContent = 'Copy';
       btn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const t = code.innerText;
@@ -120,8 +120,8 @@
           try { document.execCommand('copy'); } catch (__) {}
           ta.remove();
         }
-        btn.textContent = '✓ Đã copy'; btn.classList.add('done');
-        setTimeout(() => { btn.textContent = '⧉ Copy'; btn.classList.remove('done'); }, 1500);
+        btn.textContent = 'Đã copy'; btn.classList.add('done');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1500);
       });
       pre.appendChild(btn);
     });
@@ -130,7 +130,7 @@
     refreshProgress(); updateTopProg(p);
   }
 
-  function labelText(on) { return on ? '✓ Đã học xong bài này' : '○ Đánh dấu đã học'; }
+  function labelText(on) { return on ? 'Đã học xong bài này' : 'Đánh dấu đã học'; }
   function escAttr(s) { return s.replace(/"/g, '&quot;'); }
 
   // ---- Tiến độ tổng (sidebar) ----
